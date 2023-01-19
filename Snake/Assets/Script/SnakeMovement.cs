@@ -1,14 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SnakeMovement : MonoBehaviour
 {
     private Vector2 direction = Vector2.left;
+    private List<Transform> blocks;
 
     private void Update()
     {
         Movement();
+        blocks = new List<Transform>();
+        blocks.Add(this.transform);
     }
 
     private void Movement()
