@@ -37,13 +37,18 @@ public class SnakeMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        for (int i = blocks.Count - 1; i > 0; i--)
+        {
+            blocks[i].position = blocks[i - 1].position;
+        }
+
         this.transform.position = new Vector3((Mathf.Round(this.transform.position.x) + direction.x),
         (Mathf.Round(this.transform.position.y) + direction.y), 0f);
     }
 
     private void growBlock()
     {
-        Transform block = Instantiate(this.transform);
+        Transform block = Instantiate(this.blockPreFab);
         block.position = blocks[blocks.Count - 1].position;
         blocks.Add(block);
     }
