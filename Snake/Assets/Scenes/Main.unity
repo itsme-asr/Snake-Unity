@@ -604,7 +604,7 @@ GameObject:
   - component: {fileID: 1520199630}
   m_Layer: 0
   m_Name: Food
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 1860267200}
   m_Layer: 0
   m_Name: Snake
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -966,3 +966,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652c4283e60507a49828801449f0f0bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockPreFab: {fileID: 1776514565468389689, guid: 54347c63ebbc3ae4fad1f20ec15dd712, type: 3}
