@@ -8,12 +8,14 @@ public class SnakeMovement : MonoBehaviour
     private List<Transform> blocks;
 
     [SerializeField] private Transform blockPreFab;
-
+    private void Start()
+    {
+        blocks = new List<Transform>();
+        blocks.Add(this.transform);
+    }
     private void Update()
     {
         Movement();
-        blocks = new List<Transform>();
-        blocks.Add(this.transform);
     }
 
     private void Movement()
@@ -39,11 +41,9 @@ public class SnakeMovement : MonoBehaviour
     private void FixedUpdate()
     {
         //Debug.Log(blocks.Count);
-
-
         for (int i = blocks.Count - 1; i > 0; i--)
         {
-            Debug.Log(blocks.Count + " " + i);
+            //Debug.Log(blocks.Count + " " + i);
             blocks[i].position = blocks[i - 1].position;
         }
 
@@ -55,6 +55,7 @@ public class SnakeMovement : MonoBehaviour
     private void growBlock()
     {
         Transform block = Instantiate(this.blockPreFab);
+        //Debug.Log(blocks.Count);
         block.position = blocks[blocks.Count - 1].position;
         blocks.Add(block);
     }
