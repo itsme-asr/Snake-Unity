@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class SnakeMovement : MonoBehaviour
@@ -37,15 +38,20 @@ public class SnakeMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Debug.Log(blocks.Count);
+
+
         for (int i = blocks.Count - 1; i > 0; i--)
         {
+            Debug.Log(blocks.Count + " " + i);
             blocks[i].position = blocks[i - 1].position;
         }
 
         this.transform.position = new Vector3((Mathf.Round(this.transform.position.x) + direction.x),
-        (Mathf.Round(this.transform.position.y) + direction.y), 0f);
-    }
+    (Mathf.Round(this.transform.position.y) + direction.y), 0f);
 
+
+    }
     private void growBlock()
     {
         Transform block = Instantiate(this.blockPreFab);
@@ -61,5 +67,4 @@ public class SnakeMovement : MonoBehaviour
         }
 
     }
-
 }
