@@ -59,12 +59,30 @@ public class SnakeMovement : MonoBehaviour
         block.position = blocks[blocks.Count - 1].position;
         blocks.Add(block);
     }
+    private void resetState()
+    {
+        for (int i = 1; i < blocks.Count; i++)
+        {
+            Destroy(blocks[i].gameObject);
+        }
+
+        blocks.Clear();
+        blocks.Add(this.transform);
+
+        this.transform.position = Vector3.zero;
+        direction = Vector2.left;
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Food")
         {
             growBlock();
+        }
+        else if (other.tag == "Walls")
+        {
+            resetState();
         }
 
     }
